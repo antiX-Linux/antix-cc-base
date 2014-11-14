@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=antiXCC
+Exec=antixcc.sh
+Icon=/usr/share/icons/gTangish-2.0a1/48x48/categories/preferences-desktop.png
+Terminal=false
+Type=Application
+Categories=Other;
+NoDisplay=True
