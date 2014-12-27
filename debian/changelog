@@ -1,3 +1,10 @@
+antix-cc-base-antix (0.3.8) unstable; urgency=low
+ 
+  * New icon theme
+
+ -- anticapitalista <antiX@operamail.com>  Sat, 27 Dec 2014 14:17:00 +0200
+
+
 antix-cc-base-antix (0.3.7) unstable; urgency=low
  
   * Using dpkg-buildpackage.
