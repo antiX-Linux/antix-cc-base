@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Name=antiXCC
 Exec=antixcc.sh
-Icon=preferences-desktop.png
+Icon=preferences-desktop
 Terminal=false
 Type=Application
 Categories=Other;
