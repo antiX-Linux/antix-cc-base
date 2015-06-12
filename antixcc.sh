@@ -25,7 +25,7 @@ ICONS=/usr/share/icons/antiX
 EDITOR="geany -i"
 
 Desktop=$"Desktop" System=$"System" Network=$"Network" Session=$"Session"
-Live=$"Live" Disks=$"Disks" Hardware=$"Hardware" CLI=$"CLI" Tools=$"Tools" 
+Live=$"Live" Disks=$"Disks" Hardware=$"Hardware" 
 
 [ -d $HOME/.fluxbox -a -e /usr/share/xsessions/fluxbox.desktop ] \
     && edit_fluxbox=$(cat <<Edit_Fluxbox
@@ -190,7 +190,7 @@ $edit_jwm
         <action>desktop-defaults-run -te $HOME/.conkyrc  &</action>
       </button>
       <text use-markup="true" width-chars="28">
-        <label>$(echo $"Edit System Monitor")</label>
+        <label>$(echo $"Edit System Monitor(conky)")</label>
       </text>
     </hbox>
   </vbox>
@@ -228,6 +228,16 @@ $edit_icewm
 </hbox> </frame> </vbox>
 <vbox> <frame> <hbox>
   <vbox>
+
+    <hbox>
+      <button>
+        <input file>$ICONS/synaptic.png</input>
+        <action>gksu synaptic &</action>
+      </button>
+      <text use-markup="true" width-chars="28">
+        <label>$(echo $"Manage Packages")</label>
+      </text>
+    </hbox>
 
     <hbox>
       <button>
@@ -281,6 +291,15 @@ $edit_icewm
     
     <hbox>
       <button>
+        <input file>$ICONS/hwinfo.png</input>
+        <action>hardinfo &</action>
+      </button>
+      <text use-markup="true" width-chars="28">
+        <label>$(echo $"System Information")</label>
+      </text>
+    </hbox>
+    <hbox>
+      <button>
         <input file>$ICONS/time-admin.png</input>
         <action>urxvt -e su -c "dpkg-reconfigure tzdata" &</action>
       </button>
@@ -313,11 +332,21 @@ $edit_icewm
         <label>$(echo $"Configure GPRS/UMTS")</label>
       </text>
     </hbox>
+
+    <hbox>
+      <button>
+        <input file>$ICONS/nm-device-wireless.png</input>
+        <action>wicd-gtk &</action>
+      </button>
+      <text use-markup="true" width-chars="28">
+        <label>$(echo $"Connect Wirelessly (wicd)")</label>
+      </text>
+    </hbox>
    
     <hbox>
       <button>
         <input file>$ICONS/connectshares.png</input>
-        <action>connectshares &</action>
+        <action>connectshares-config &</action>
       </button>
       <text use-markup="true" width-chars="28">
         <label>$(echo $"Connect Shares")</label>
@@ -335,6 +364,16 @@ $edit_icewm
       </text>
     </hbox>
 
+    <hbox>
+      <button>
+        <input file>$ICONS/firewall.png</input>
+        <action>gksu gufw &</action>
+      </button>
+      <text use-markup="true" width-chars="28">
+        <label>$(echo $"Manage Firewall")</label>
+      </text>
+    </hbox>
+    
     <hbox>
       <button>
         <input file>$ICONS/gftp.png</input>
@@ -457,11 +496,20 @@ $live_tab
     </hbox>
     <hbox>
       <button>
-        <input file>$ICONS/drive-harddisk-system.png</input>
-        <action>xfburn &</action>
+        <input file>$ICONS/luckybackup.png</input>
+        <action>gksu luckybackup &</action>
       </button>
       <text use-markup="true" width-chars="28">
-        <label>$(echo $"CD/DVD Burner")</label>
+        <label>$(echo $"Backup Your System")</label>
+      </text>
+    </hbox>
+    <hbox>
+      <button>
+        <input file>$ICONS/usb-creator.png</input>
+        <action>gksu unetbootin &</action>
+      </button>
+      <text use-markup="true" width-chars="28">
+        <label>$(echo $"UNetbootin")</label>
       </text>
     </hbox>
   </vbox>
@@ -493,11 +541,37 @@ $live_tab
         <label>$(echo $"Synchronize Directories")</label>
       </text>
     </hbox>
+    <hbox>
+      <button>
+        <input file>$ICONS/drive-harddisk-system.png</input>
+        <action>xfburn &</action>
+      </button>
+      <text use-markup="true" width-chars="28">
+        <label>$(echo $"CD/DVD Burner")</label>
+      </text>
+    </hbox>
   </vbox>
 </hbox> </frame> </vbox>
 <vbox> <frame> <hbox>
   <vbox>
-    
+    <hbox>
+      <button>
+        <input file>$ICONS/scanner.png</input>
+        <action>simple-scan &</action>
+      </button>
+      <text use-markup="true" width-chars="28">
+        <label>$(echo $"Simple Scan")</label>
+      </text>
+    </hbox>
+    <hbox>
+      <button>
+        <input file>$ICONS/printer.png</input>
+        <action>system-config-printer &</action>
+      </button>
+      <text use-markup="true" width-chars="28">
+        <label>$(echo $"Setup a Printer")</label>
+      </text>
+    </hbox>
     <hbox>
       <button>
         <input file>$ICONS/computer.png</input>
@@ -516,6 +590,9 @@ $live_tab
         <label>$(echo $"Configure Mouse")</label>
       </text>
     </hbox>
+
+  </vbox>
+  <vbox>
     <hbox>
       <button>
         <input file>$ICONS/audacity.png</input>
@@ -525,8 +602,6 @@ $live_tab
         <label>$(echo $"Set Default Sound Card")</label>
       </text>
     </hbox>
-  </vbox>
-  <vbox>
     <hbox>
       <button>
         <input file>$ICONS/preferences-desktop-sound.png</input>
@@ -557,148 +632,7 @@ $live_tab
 
   </vbox>
 </hbox> </frame> </vbox>
-<vbox> <frame> <hbox>
-  <vbox>
-    <hbox>
-      <button>
-        <input file>$ICONS/audacity.png</input>
-        <action>desktop-defaults-run -t mocp &</action>
-      </button>
-      <text use-markup="true" width-chars="28">
-        <label>$(echo $"Music - MOC")</label>
-      </text>
-    </hbox>
-    <hbox>
-      <button>
-        <input file>$ICONS/hexchat.png</input>
-        <action>desktop-defaults-run -t irssi &</action>
-      </button>
-      <text use-markup="true" width-chars="28">
-        <label>$(echo $"Chat - irssi")</label>
-      </text>
-    </hbox>
-    <hbox>
-      <button>
-        <input file>$ICONS/deluge.png</input>
-        <action>desktop-defaults-run -t rtorrent &</action>
-      </button>
-      <text use-markup="true" width-chars="28">
-        <label>$(echo $"Torrent - rTorrent")</label>
-      </text>
-    </hbox>
 
-  </vbox>
-  <vbox>
-    <hbox>
-      <button>
-        <input file>$ICONS/internet-news-reader.png</input>
-        <action>desktop-defaults-run -t newsbeuter &</action>
-      </button>
-      <text use-markup="true" width-chars="28">
-        <label>$(echo $"News Reader - Newsbeuter")</label>
-      </text>
-    </hbox>
-    <hbox>
-      <button>
-        <input file>$ICONS/gnome-documents.png</input>
-        <action>desktop-defaults-run -t wordgrinder &</action>
-      </button>
-      <text use-markup="true" width-chars="28">
-        <label>$(echo $"Writer - Wordgrinder")</label>
-      </text>
-    </hbox>
-    <hbox>
-      <button>
-        <input file>$ICONS/web-browser.png</input>
-        <action>desktop-defaults-run -t elinks &</action>
-      </button>
-      <text use-markup="true" width-chars="28">
-        <label>$(echo $"Browser - ELinks")</label>
-      </text>
-    </hbox>
-    <hbox>
-      <button>
-        <input file>$ICONS/brasero.png</input>
-        <action>desktop-defaults-run -t cdw &</action>
-      </button>
-      <text use-markup="true" width-chars="28">
-        <label>$(echo $"CD/DVD Burner - cdw")</label>
-      </text>
-    </hbox>
-
-  </vbox>
-</hbox> </frame> </vbox>
-<vbox> <frame> <hbox>
-  <vbox>
-    <hbox>
-      <button>
-        <input file>$ICONS/gnome-documents.png</input>
-        <action>desktop-defaults-run -t nano &</action>
-      </button>
-      <text use-markup="true" width-chars="28">
-        <label>$(echo $"CLI Editor - GNU nano")</label>
-      </text>
-    </hbox>
-    <hbox>
-      <button>
-        <input file>$ICONS/spacefm-find.png</input>
-        <action>spacefm --find-files &</action>
-      </button>
-      <text use-markup="true" width-chars="28">
-        <label>$(echo $"Search")</label>
-      </text>
-    </hbox>
-    <hbox>
-      <button>
-        <input file>$ICONS/system-file-manager.png</input>
-        <action>desktop-defaults-run -t mc &</action>
-      </button>
-      <text use-markup="true" width-chars="28">
-        <label>$(echo $"MC File Manager")</label>
-      </text>
-    </hbox>
-    <hbox>
-      <button>
-        <input file>$ICONS/calendar.png</input>
-        <action>desktop-defaults-run -t calcurse &</action>
-      </button>
-      <text use-markup="true" width-chars="28">
-        <label>$(echo $"Organiser - calcurse")</label>
-      </text>
-    </hbox>
-
-  </vbox>
-  <vbox>
-    <hbox>
-      <button>
-        <input file>$ICONS/utilities-system-monitor.png</input>
-        <action>desktop-defaults-run -t htop &</action>
-      </button>
-      <text use-markup="true" width-chars="28">
-        <label>$(echo $"Process Viewer - htop")</label>
-      </text>
-    </hbox>
-    <hbox>
-      <button>
-        <input file>$ICONS/palimpsest.png</input>
-        <action>gksu grub-customizer &</action>
-      </button>
-      <text use-markup="true" width-chars="28">
-        <label>$(echo $"Grub Customizer")</label>
-      </text>
-    </hbox>
-    <hbox>
-      <button>
-        <input file>$ICONS/gnome-documents.png</input>
-        <action>Ted &</action>
-      </button>
-      <text use-markup="true" width-chars="28">
-        <label>$(echo $"Ted Word Processor")</label>
-      </text>
-    </hbox>
-
-  </vbox>
-</hbox> </frame> </vbox>
 </notebook>
 </vbox>
 </window>
