@@ -1,3 +1,11 @@
+antix-cc-base-antix (0.4.2) unstable; urgency=low
+
+  * Tidied up entries
+  * Updated translations
+
+ -- anticapitalista <antiX@operamail.com>  Sat, 27 Jun 2015 23:18:00 +0200
+
+
 antix-cc-base-antix (0.4.1) unstable; urgency=low
 
   * Removed CLI and Tools entries

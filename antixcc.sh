@@ -159,10 +159,10 @@ Live_Tab
 
 # If we are on a live system then ...
 if grep -q " /live/aufs aufs" /proc/mounts; then
-    tab_labels="$Desktop|$System|$Network|$Session|$Live|$Disks|$Hardware|$CLI|$Tools"
+    tab_labels="$Desktop|$System|$Network|$Session|$Live|$Disks|$Hardware"
 
 else
-    tab_labels="$Desktop|$System|$Network|$Session|$Disks|$Hardware|$CLI|$Tools"
+    tab_labels="$Desktop|$System|$Network|$Session|$Disks|$Hardware"
     live_tab=
 fi
 
@@ -231,16 +231,6 @@ $edit_icewm
 
     <hbox>
       <button>
-        <input file>$ICONS/synaptic.png</input>
-        <action>gksu synaptic &</action>
-      </button>
-      <text use-markup="true" width-chars="28">
-        <label>$(echo $"Manage Packages")</label>
-      </text>
-    </hbox>
-
-    <hbox>
-      <button>
         <input file>$ICONS/applications-system.png</input>
         <action>gksu antix-system.sh &</action>
       </button>
@@ -288,16 +278,7 @@ $edit_icewm
         <label>$(echo $"Edit Config Files")</label>
       </text>
     </hbox>
-    
-    <hbox>
-      <button>
-        <input file>$ICONS/hwinfo.png</input>
-        <action>hardinfo &</action>
-      </button>
-      <text use-markup="true" width-chars="28">
-        <label>$(echo $"System Information")</label>
-      </text>
-    </hbox>
+
     <hbox>
       <button>
         <input file>$ICONS/time-admin.png</input>
@@ -332,16 +313,6 @@ $edit_icewm
         <label>$(echo $"Configure GPRS/UMTS")</label>
       </text>
     </hbox>
-
-    <hbox>
-      <button>
-        <input file>$ICONS/nm-device-wireless.png</input>
-        <action>wicd-gtk &</action>
-      </button>
-      <text use-markup="true" width-chars="28">
-        <label>$(echo $"Connect Wirelessly (wicd)")</label>
-      </text>
-    </hbox>
    
     <hbox>
       <button>
@@ -366,21 +337,11 @@ $edit_icewm
 
     <hbox>
       <button>
-        <input file>$ICONS/firewall.png</input>
-        <action>gksu gufw &</action>
+        <input file>$ICONS/nm-device-wireless.png</input>
+        <action>/usr/sbin/wpa_gui &</action>
       </button>
       <text use-markup="true" width-chars="28">
-        <label>$(echo $"Manage Firewall")</label>
-      </text>
-    </hbox>
-    
-    <hbox>
-      <button>
-        <input file>$ICONS/gftp.png</input>
-        <action>gftp &</action>
-      </button>
-      <text use-markup="true" width-chars="28">
-        <label>$(echo $"gFTP")</label>
+        <label>$(echo $"Configure wpa_supplicant")</label>
       </text>
     </hbox>
 
@@ -494,24 +455,6 @@ $live_tab
         <label>$(echo $"Mount Connected Devices")</label>
       </text>
     </hbox>
-    <hbox>
-      <button>
-        <input file>$ICONS/luckybackup.png</input>
-        <action>gksu luckybackup &</action>
-      </button>
-      <text use-markup="true" width-chars="28">
-        <label>$(echo $"Backup Your System")</label>
-      </text>
-    </hbox>
-    <hbox>
-      <button>
-        <input file>$ICONS/usb-creator.png</input>
-        <action>gksu unetbootin &</action>
-      </button>
-      <text use-markup="true" width-chars="28">
-        <label>$(echo $"UNetbootin")</label>
-      </text>
-    </hbox>
   </vbox>
   <vbox>
     <hbox>
@@ -541,37 +484,10 @@ $live_tab
         <label>$(echo $"Synchronize Directories")</label>
       </text>
     </hbox>
-    <hbox>
-      <button>
-        <input file>$ICONS/drive-harddisk-system.png</input>
-        <action>xfburn &</action>
-      </button>
-      <text use-markup="true" width-chars="28">
-        <label>$(echo $"CD/DVD Burner")</label>
-      </text>
-    </hbox>
   </vbox>
 </hbox> </frame> </vbox>
 <vbox> <frame> <hbox>
   <vbox>
-    <hbox>
-      <button>
-        <input file>$ICONS/scanner.png</input>
-        <action>simple-scan &</action>
-      </button>
-      <text use-markup="true" width-chars="28">
-        <label>$(echo $"Simple Scan")</label>
-      </text>
-    </hbox>
-    <hbox>
-      <button>
-        <input file>$ICONS/printer.png</input>
-        <action>system-config-printer &</action>
-      </button>
-      <text use-markup="true" width-chars="28">
-        <label>$(echo $"Setup a Printer")</label>
-      </text>
-    </hbox>
     <hbox>
       <button>
         <input file>$ICONS/computer.png</input>
@@ -590,9 +506,6 @@ $live_tab
         <label>$(echo $"Configure Mouse")</label>
       </text>
     </hbox>
-
-  </vbox>
-  <vbox>
     <hbox>
       <button>
         <input file>$ICONS/audacity.png</input>
@@ -602,6 +515,10 @@ $live_tab
         <label>$(echo $"Set Default Sound Card")</label>
       </text>
     </hbox>
+
+  </vbox>
+  <vbox>
+    
     <hbox>
       <button>
         <input file>$ICONS/preferences-desktop-sound.png</input>
