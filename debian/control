@@ -1,12 +1,14 @@
 Source: antix-cc-base-antix
 Section: system
 Priority: optional
-Maintainer: anticapitalista <antiX@operamail.com>
+Maintainer: anticapitalista <antix@operamail.com>
 Build-Depends: debhelper (>= 9.20120115)
 Standards-Version: 3.9.4
 Homepage: http://antix.mepis.org
 
 Package: antix-cc-base-antix
 Architecture: all
-Depends: gtkdialog, yad, geany, leafpad, ktsuss, lxappearance, sysv-rc-conf, rxvt-unicode, wallpaper-antix, user-management-antix, keyboard-cc-antix, arandr, gparted, partimage, grsync, mountbox-antix, live-usb-gui-antix, inxi-gui-antix, mouse-cc-antix, alsa-utils, set-screen-blank-antix   
+Depends: gtkdialog, yad, geany, leafpad, lxappearance, sysv-rc-conf, rxvt-unicode, wallpaper-antix, user-management-antix, keyboard-cc-antix, arandr, gparted, partimage, grsync, mountbox-antix, live-usb-gui-antix, inxi-gui-antix, ds-mouse-antix, alsa-utils, set-screen-blank-antix   
+Conflicts: mouse-cc-antix 
+Replaces: mouse-cc-antix   
 Description: Control centre for antiX-base.

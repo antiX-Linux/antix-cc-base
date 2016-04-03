@@ -76,7 +76,7 @@ grep -q " /live/boot-dev .*\<rw\>" /proc/mounts \
     <hbox>
       <button>
         <input file>$ICONS/preferences-desktop.png</input>
-        <action>gksu $EDITOR /live/boot-dev/boot/syslinux/syslinux.cfg /live/boot-dev/boot/syslinux/gfxboot.cfg &</action>
+        <action>gksu "$EDITOR /live/boot-dev/boot/syslinux/syslinux.cfg /live/boot-dev/boot/syslinux/gfxboot.cfg" &</action>
       </button>
       <text use-markup="true" width-chars="28">
         <label>$(echo $"Edit Bootloader menu")</label>
@@ -116,7 +116,7 @@ Persist_Save
     <hbox>
       <button>
         <input file>$ICONS/preferences-desktop.png</input>
-        <action>gksu remaster-live &</action>
+        <action>gksu live-remaster &</action>
       </button>
       <text use-markup="true" width-chars="28">
         <label>$(echo $"Remaster")</label>
@@ -158,11 +158,11 @@ Live_Tab
 )
 
 # If we are on a live system then ...
-if grep -q " /live/aufs aufs" /proc/mounts; then
-    tab_labels="$Desktop|$System|$Network|$Session|$Live|$Disks|$Hardware"
+if grep -q " /live/aufs " /proc/mounts; then
+    tab_labels="$Desktop|$System|$Network|$Session|$Live|$Disks|$Hardware|$CLI|$Tools"
 
 else
-    tab_labels="$Desktop|$System|$Network|$Session|$Disks|$Hardware"
+    tab_labels="$Desktop|$System|$Network|$Session|$Disks|$Hardware|$CLI|$Tools"
     live_tab=
 fi
 
@@ -250,7 +250,7 @@ $edit_icewm
     <hbox>
       <button>
         <input file>$ICONS/gnome-settings-default-applications.png</input>
-        <action>desktop-defaults-run -t su -c sysv-rc-conf &</action>
+        <action>desktop-defaults-run -t sudo sysv-rc-conf &</action>
       </button>
       <text use-markup="true" width-chars="28">
         <label>$(echo $"Choose Startup Services")</label>
@@ -282,7 +282,7 @@ $edit_icewm
     <hbox>
       <button>
         <input file>$ICONS/time-admin.png</input>
-        <action>urxvt -e su -c "dpkg-reconfigure tzdata" &</action>
+        <action>desktop-defaults-run -t sudo "dpkg-reconfigure tzdata" &</action>
       </button>
       <text use-markup="true" width-chars="28">
         <label>$(echo $"Set Date and Time")</label>
@@ -316,11 +316,11 @@ $edit_icewm
    
     <hbox>
       <button>
-        <input file>$ICONS/connectshares.png</input>
+        <input file>$ICONS/connectshares-config.png</input>
         <action>connectshares-config &</action>
       </button>
       <text use-markup="true" width-chars="28">
-        <label>$(echo $"Connect Shares")</label>
+        <label>$(echo $"Configure Connectshares")</label>
       </text>
     </hbox>
   </vbox>
@@ -469,7 +469,7 @@ $live_tab
     <hbox>
       <button>
         <input file>$ICONS/drive-harddisk-system.png</input>
-        <action>desktop-defaults-run -t su -c partimage &</action>
+        <action>desktop-defaults-run -t sudo partimage &</action>
       </button>
       <text use-markup="true" width-chars="28">
         <label>$(echo $"Image a Partition")</label>
@@ -500,7 +500,7 @@ $live_tab
     <hbox>
       <button>
         <input file>$ICONS/input-mouse.png</input>
-        <action>antixccmouse.sh &</action>
+        <action>ds-mouse &</action>
       </button>
       <text use-markup="true" width-chars="28">
         <label>$(echo $"Configure Mouse")</label>
