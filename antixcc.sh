@@ -99,7 +99,7 @@ test -d $excludes_dir && edit_excludes=$(cat <<Edit_Excludes
 Edit_Excludes
 )
 
-[ -e /live/config/save-persist -o -e /live/config/persist-save.conf ]  && persist_save=$(cat <<Persist_Save
+[ -e /etc/live/config/save-persist -o -e /etc/live/config/persist-save.conf ]  && persist_save=$(cat <<Persist_Save
     <hbox>
       <button>
         <input file>$ICONS/palimpsest.png</input>
@@ -112,7 +112,7 @@ Edit_Excludes
 Persist_Save
 )
 
-[ -e /live/config/remasterable -o -e /live/config/remaster-live.conf ] && live_remaster=$(cat <<Live_Remaster
+[ -e /etc/live/config/remasterable -o -e /etc/live/config/remaster-live.conf ] && live_remaster=$(cat <<Live_Remaster
     <hbox>
       <button>
         <input file>$ICONS/preferences-desktop.png</input>
