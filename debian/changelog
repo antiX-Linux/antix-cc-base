@@ -1,3 +1,9 @@
+antix-cc-base-antix (0.4.7) unstable; urgency=medium
+
+  * Removed Global Desktop-Session 
+
+ -- anticapitalista <antix@operamail.com>  Fri, 29 Apr 2016 20:12:01 +0300
+
 antix-cc-base-antix (0.4.6) unstable; urgency=medium
 
   * Use /etc/ to show Remaster when running live 
